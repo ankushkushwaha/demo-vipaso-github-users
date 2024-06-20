@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "364DDBFE-4CAD-4BD6-81AC-D4F1E381B4A1",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GithubMobile.xcodeproj",
+      "identifier" : "540B41242C1D9D3500F717EA",
+      "name" : "GithubMobile"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GithubMobile.xcodeproj",
+        "identifier" : "540B41342C1D9D3700F717EA",
+        "name" : "GithubMobileTests"
+      }
+    }
+  ],
+  "version" : 1
+}
