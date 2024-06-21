@@ -16,39 +16,25 @@ struct UserDetailService: UserDetailServiceProtocol {
     }
     
     func fetchRepo(urlString: String) async -> Result<[Repo], Error> {
-
-        guard let url = URL(string: urlString) else {
-            return .failure(NetworkingError.invalidURL)
-        }
-
-        do {
-            let (data, response) = try await session.fetchData(url: url)
-
-            let models = try JSONDecoder().decode([Repo].self, from: data)
-
-            guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(NetworkingError.requestFailed("No http response."))
-            }
-
-            if (400...599).contains(httpResponse.statusCode) {
-                return .failure(NetworkingError.httpError(httpResponse.statusCode))
-            }
-
-            return .success(models)
-        } catch {
-            return .failure(error)
-        }
+        await fetch(type: [Repo].self, url: urlString)
     }
     
-    func fetchUserDetail(userName: String) async -> Result<User, any Error> {
-        guard let url = URL(string: "https://api.github.com/users/\(userName)") else {
+    func fetchUserDetail(userName: String) async -> Result<User, Error> {
+        let urlString = "https://api.github.com/users/\(userName)"
+        return await fetch(type: User.self, url: urlString)
+    }
+    
+    private func fetch<T: Decodable>(type: T.Type,
+                                     url: String) async -> Result<T, Error> {
+        
+        guard let url = URL(string: url) else {
             return .failure(NetworkingError.invalidURL)
         }
 
         do {
-            let (data, response) = try await session.fetchData(url: url)
+            let (data, response) = try await session.fetchData(type: type, url: url)
 
-            let models = try JSONDecoder().decode(User.self, from: data)
+            let model = try JSONDecoder().decode(type.self, from: data)
 
             guard let httpResponse = response as? HTTPURLResponse else {
                 return .failure(NetworkingError.requestFailed("No http response."))
@@ -57,8 +43,8 @@ struct UserDetailService: UserDetailServiceProtocol {
             if (400...599).contains(httpResponse.statusCode) {
                 return .failure(NetworkingError.httpError(httpResponse.statusCode))
             }
-
-            return .success(models)
+            return .success(model)
+            
         } catch {
             return .failure(error)
         }
@@ -72,11 +58,12 @@ protocol UserDetailServiceProtocol {
 }
 
 protocol UserDetailSessionProtocol {
-    func fetchData(url: URL) async throws -> (Data, URLResponse)
+    // Inject generic T.Type for unit tests
+    func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: UserDetailSessionProtocol {
-    func fetchRepo(url: URL) async throws -> (Data, URLResponse) {
+    func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse) {
         try await self.data(from: url)
     }
 }

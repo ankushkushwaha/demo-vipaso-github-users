@@ -27,6 +27,7 @@
 		5413B2452C252887001F48D3 /* UserDetailServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */; };
 		5413B2472C25298C001F48D3 /* MockRepoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5413B2462C25298C001F48D3 /* MockRepoData.json */; };
 		5413B2492C252EB3001F48D3 /* UserDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */; };
+		5413B24B2C2553D2001F48D3 /* MockUserDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 5413B24A2C2553D2001F48D3 /* MockUserDetail.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailServiceTests.swift; sourceTree = "<group>"; };
 		5413B2462C25298C001F48D3 /* MockRepoData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = MockRepoData.json; path = ../../../../MockRepoData.json; sourceTree = "<group>"; };
 		5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelTests.swift; sourceTree = "<group>"; };
+		5413B24A2C2553D2001F48D3 /* MockUserDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = MockUserDetail.json; path = ../../../../MockUserDetail.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				5413B2352C2493D1001F48D3 /* MockTestData.json */,
 				5413B2462C25298C001F48D3 /* MockRepoData.json */,
+				5413B24A2C2553D2001F48D3 /* MockUserDetail.json */,
 				5413B2362C2493D1001F48D3 /* MockTestJsonData.swift */,
 				5413B2372C2493D1001F48D3 /* MockTestModelProvider.swift */,
 			);
@@ -261,6 +264,7 @@
 			files = (
 				5413B2472C25298C001F48D3 /* MockRepoData.json in Resources */,
 				5413B2392C2493D1001F48D3 /* MockTestData.json in Resources */,
+				5413B24B2C2553D2001F48D3 /* MockUserDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

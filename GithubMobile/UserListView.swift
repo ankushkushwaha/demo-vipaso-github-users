@@ -19,7 +19,7 @@ struct UserListView: View {
                     ProgressView()
                 } else if viewModel.error == nil,
                           viewModel.data.isEmpty {
-                    Text("Please try to search user.")
+                    Text("Please try to search Github user.")
                 } else if let error = viewModel.error {
                     Text(error.errorMessage)
                         .multilineTextAlignment(.center)

@@ -11,7 +11,7 @@ import XCTest
 
 final class UserDetailServiceTests: XCTestCase {
 
-    func testFetchDataSuccess() async {
+    func testFetchRepoSuccess() async {
         let mockSession = MockTestURLSession()
         let sut = UserDetailService(session: mockSession)
 
@@ -26,7 +26,7 @@ final class UserDetailServiceTests: XCTestCase {
         }
     }
 
-    func testFetchDataFail() async {
+    func testFetchRepoFail() async {
         var mockSession = MockTestURLSession()
         mockSession.error = MockTestURLSession.DataError.mockDataError
 
@@ -44,11 +44,44 @@ final class UserDetailServiceTests: XCTestCase {
         }
     }
 
-    func testInvalidUrl() async {
-        var mockSession = MockTestURLSession()
+    func testFetchUserDetailSuccess() async {
+        let mockSession = MockTestURLSession()
         let sut = UserDetailService(session: mockSession)
 
-        let result = await sut.fetchRepo(urlString: "")
+        let result = await sut.fetchUserDetail(userName: "ankushkushwaha")
+
+        switch result {
+        case .success(let data):
+            XCTAssertTrue(data.followers == 3)
+
+        case .failure(let err):
+            XCTFail("Could not fetch data \(err)")
+        }
+    }
+
+    func testFetchUserDetailFail() async {
+        var mockSession = MockTestURLSession()
+        mockSession.error = MockTestURLSession.DataError.mockDataError
+        
+        let sut = UserDetailService(session: mockSession)
+
+        let result = await sut.fetchUserDetail(userName: "ankushkushwaha")
+
+        switch result {
+        case .success(let data):
+            XCTFail("Fetch should not succeed.")
+
+        case .failure(let err):
+            XCTAssertEqual(MockTestURLSession.DataError.mockDataError,
+                           err as! MockTestURLSession.DataError)
+        }
+    }
+    
+    func testInvalidUrl() async {
+        let mockSession = MockTestURLSession()
+        let sut = UserDetailService(session: mockSession)
+
+        let result = await sut.fetchRepo(urlString: "") // pass invalid empty url
 
         switch result {
         case .success:
@@ -72,16 +105,20 @@ extension UserDetailServiceTests {
 
         var error: Error?
 
-        func fetchData(url: URL) async throws -> (Data, URLResponse) {
+        func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse) {
 
             if let error = error {
                 throw error
             }
-
-            return try await mockFetchData(url: url)
+            
+            if type == User.self {
+                return try await mockFetchUserDetailData(url: url)
+            }
+               
+            return try await mockFetchRepoData(url: url)
         }
 
-        private func mockFetchData(url: URL) async throws -> (Data, URLResponse) {
+        private func mockFetchRepoData(url: URL) async throws -> (Data, URLResponse) {
 
             let fakeSuccessResponse = HTTPURLResponse(url: url,
                                                       statusCode: 200,
@@ -89,6 +126,22 @@ extension UserDetailServiceTests {
                                                       headerFields: nil)
 
             let mockData = MockTestJsonData().getRepoJsonData()
+
+            guard let mockData = mockData,
+                  let response = fakeSuccessResponse else {
+                throw DataError.mockDataError
+            }
+            return (mockData, response)
+        }
+        
+        private func mockFetchUserDetailData(url: URL) async throws -> (Data, URLResponse) {
+
+            let fakeSuccessResponse = HTTPURLResponse(url: url,
+                                                      statusCode: 200,
+                                                      httpVersion: "HTTP/1.1",
+                                                      headerFields: nil)
+
+            let mockData = MockTestJsonData().getUserDetailJsonData()
 
             guard let mockData = mockData,
                   let response = fakeSuccessResponse else {
