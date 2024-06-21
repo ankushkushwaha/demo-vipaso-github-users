@@ -14,7 +14,7 @@ struct UserListView: View {
         VStack {
             ZStack {
                 mainView()
-                
+
                 if viewModel.isLoading {
                     ProgressView()
                 } else if viewModel.error == nil,
@@ -30,7 +30,7 @@ struct UserListView: View {
 }
 
 extension UserListView {
-    
+
     private func mainView() -> some View {
         NavigationStack {
                 List(viewModel.data) { user in

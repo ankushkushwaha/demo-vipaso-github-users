@@ -9,16 +9,16 @@ import SwiftUI
 
 struct UserDetailView: View {
     @ObservedObject private var viewModel: UserDetailViewModel
-    
+
     init(viewModel: UserDetailViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         VStack {
             ZStack {
                 mainView()
-                
+
                 if viewModel.isLoading {
                     ProgressView()
                 } else if let error = viewModel.error {
@@ -34,7 +34,7 @@ struct UserDetailView: View {
 }
 
 extension UserDetailView {
-    
+
     @ViewBuilder
     func mainView() -> some View {
         VStack {
@@ -49,13 +49,13 @@ extension UserDetailView {
                 ProgressView()
                     .frame(width: 100, height: 100)
             }
-            
+
             Text(viewModel.userName)
                 .font(.headline)
                 .padding()
-            
+
             if !viewModel.isLoading {
-                
+
                 if viewModel.error == nil,
                    viewModel.repos.isEmpty {
                     Text("No public repo found")
@@ -64,7 +64,7 @@ extension UserDetailView {
                         .padding(.horizontal)
                 }
             }
-            
+
             List(viewModel.repos, id: \.name) { repo in
                 Text(repo.name)
             }

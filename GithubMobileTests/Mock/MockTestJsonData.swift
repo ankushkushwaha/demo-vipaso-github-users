@@ -8,7 +8,7 @@
 import Foundation
 class MockTestJsonData {
     func getJsonData() -> Data? {
-        
+
         let bundle = Bundle(for: type(of: self))
         guard let fileURL = bundle.url(forResource: "MockTestData", withExtension: "json") else {
             print("JSON file not found")
