@@ -29,7 +29,7 @@ struct UserDetailView: View {
             }
         }
         .task {
-            await viewModel.fetchRepo()
+            viewModel.fetchData()
         }
     }
 }
@@ -56,6 +56,27 @@ extension UserDetailView {
             Text(viewModel.userName)
                 .font(.headline)
                 .padding()
+            
+            HStack {
+                Text("Followers: \(viewModel.followers)")
+                    .padding(.leading)
+                Spacer()
+                Text("Following: \(viewModel.followings)")
+                    .padding(.trailing)
+            }
+            
+            HStack {
+                Text("Public Repos: \(viewModel.publicRepos)")
+                    .padding(.leading)
+                Spacer()
+                Text("Public Gist: \(viewModel.publicGists)")
+                    .padding(.trailing)
+           }
+        
+            Text("Blog: \(viewModel.blog)")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+
 
             if !viewModel.isLoading {
 
