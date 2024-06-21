@@ -10,8 +10,8 @@ import Foundation
 enum NetworkingError: Error {
     
     case invalidURL
-    case requestFailed(description: String)
-    case noSearchResultsAvailable(description: String?)
+    case requestFailed(_ description: String)
+    case noSearchResultsAvailable(_ description: String?)
     case httpError(Int)
     
     var errorMessage: String {
@@ -23,7 +23,7 @@ enum NetworkingError: Error {
         case .noSearchResultsAvailable(_):
             return String(localized: "No search results available for entered keyword.")
         case .httpError(let errorCode):
-            return String(localized: "Error: \(errorCode)")
+            return "Error: \(errorCode)"
         }
     }
     

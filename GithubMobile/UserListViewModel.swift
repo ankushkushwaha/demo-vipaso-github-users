@@ -56,13 +56,13 @@ class UserListViewModel: ObservableObject {
         case .success(let users):
             data = users
            if users.isEmpty {
-                error = NetworkingError.noSearchResultsAvailable(description: "No search results.")
+               error = NetworkingError.noSearchResultsAvailable("No search results.")
             }
             
         case .failure(let err):
             print(err)
             // set custom NetworkingError for better user experience.
-            error = NetworkingError.requestFailed(description: err.localizedDescription)
+            error = NetworkingError.requestFailed(err.localizedDescription)
         }
     }
     

@@ -28,7 +28,7 @@ struct UserService: UserServiceProtocol {
             let users = try JSONDecoder().decode(UserResponse.self, from: data)
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(NetworkingError.requestFailed(description: "No http response."))
+                return .failure(NetworkingError.requestFailed("No http response."))
             }
             
             if (400...599).contains(httpResponse.statusCode) {
