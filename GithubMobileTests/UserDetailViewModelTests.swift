@@ -1,5 +1,5 @@
 //
-//  UserListViewModelTests.swift
+//  UserDetailViewModelTests.swift
 //  GithubMobileTests
 //
 //  Created by Ankush Kushwaha on 21/06/24.
@@ -8,44 +8,44 @@
 import XCTest
 @testable import GithubMobile
 
-final class UserListViewModelTests: XCTestCase {
-    
-    func testFetchUsersSuccess() async {
+final class UserDetailViewModelTests: XCTestCase {
+
+    func testFetchReposSuccess() async {
         let mockService = MockService()
-        
-        let sut = UserListViewModel(service: mockService)
-        
-        XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 0)
-        
-        await sut.fetchUsers(searchText: "abc")
+               
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
         
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 30)
+        XCTAssertEqual(sut.repos.count, 0)
         
+        await sut.fetchRepo()
+        
+        XCTAssertNil(sut.error)
+        XCTAssertEqual(sut.repos.count, 30)
     }
-    
+
     func testFetchUsersFail() async {
         
         var mockService = MockService()
         mockService.error = NetworkingError.requestFailed("Mock fetch failed")
         
-        let sut = UserListViewModel(service: mockService)
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 0)
+        XCTAssertEqual(sut.repos.count, 0)
         
-        await sut.fetchUsers(searchText: "abc")
-        
+        await sut.fetchRepo()
+
         XCTAssertNotNil(sut.error)
         XCTAssertEqual(sut.error?.errorId,
                        NetworkingError.requestFailed("Mock fetch failed").errorId)
-        XCTAssertEqual(sut.data.count, 0)
+        XCTAssertEqual(sut.repos.count, 0)
     }
 }
 
-extension UserListViewModelTests {
+
+extension UserDetailViewModelTests {
     
-    struct MockService: UserServiceProtocol {
+    struct MockService: UserDetailServiceProtocol {
         
         enum DataError: Error {
             case requestFailed
@@ -54,11 +54,11 @@ extension UserListViewModelTests {
         
         var error: Error?
         
-        func fetchUserList(searchQuery: String) async -> Result<[User], Error> {
+        func fetchRepo(urlString: String) async -> Result<[Repo], Error> {
             if let error = error {
                 return .failure(error)
                 
-            } else if let models = MockTestModelProvider().userList() {
+            } else if let models = MockTestModelProvider().repoList() {
                 return .success(models)
             }
             
@@ -70,5 +70,13 @@ extension UserListViewModelTests {
         func fetchData(url: URL) async throws -> (Data, URLResponse) {
             fatalError("MockURLSessionPlaceHolder method called")
         }
+    }
+    
+    private var mockUser: User {
+        let user = User(id: 11902070,
+                        login: "ankushkushwaha",
+                        avatarUrl: "https://avatars.githubusercontent.com/u/11902070?v=4",
+                        repoUrl: "https://api.github.com/users/ankushkushwaha/repos")
+        return user
     }
 }
