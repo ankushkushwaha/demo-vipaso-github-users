@@ -34,7 +34,8 @@ extension UserListView {
     private func mainView() -> some View {
         NavigationStack {
                 List(viewModel.data) { user in
-                    NavigationLink(destination: UserDetailView(user: user)) {
+                    NavigationLink(destination:
+                            UserDetailView(viewModel: UserDetailViewModel(user: user))) {
                         Text(user.login)
                     }
                 }

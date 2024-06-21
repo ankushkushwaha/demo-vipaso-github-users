@@ -14,7 +14,7 @@
 		540DC9292C2489250008F90E /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9252C2489250008F90E /* UserListViewModel.swift */; };
 		540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9262C2489250008F90E /* UserDetailView.swift */; };
 		540DC92B2C2489250008F90E /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9272C2489250008F90E /* UserDetailViewModel.swift */; };
-		540DC9342C248CE80008F90E /* UserDetailServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9312C248CDE0008F90E /* UserDetailServices.swift */; };
+		540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9312C248CDE0008F90E /* UserDetailService.swift */; };
 		540DC93F2C248DB20008F90E /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93D2C248DB20008F90E /* Repo.swift */; };
 		540DC9402C248DB20008F90E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93E2C248DB20008F90E /* User.swift */; };
 		540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9412C248FA20008F90E /* NetworkingError.swift */; };
@@ -46,7 +46,7 @@
 		540DC9252C2489250008F90E /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		540DC9262C2489250008F90E /* UserDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		540DC9272C2489250008F90E /* UserDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
-		540DC9312C248CDE0008F90E /* UserDetailServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailServices.swift; sourceTree = "<group>"; };
+		540DC9312C248CDE0008F90E /* UserDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailService.swift; sourceTree = "<group>"; };
 		540DC93D2C248DB20008F90E /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		540DC93E2C248DB20008F90E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		540DC9412C248FA20008F90E /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -100,11 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				540B41282C1D9D3500F717EA /* GithubMobileApp.swift */,
-				540DC9262C2489250008F90E /* UserDetailView.swift */,
-				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
 				540DC9242C2489250008F90E /* UserListView.swift */,
 				540DC9252C2489250008F90E /* UserListViewModel.swift */,
-				540DC9312C248CDE0008F90E /* UserDetailServices.swift */,
+				540DC9262C2489250008F90E /* UserDetailView.swift */,
+				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
 				540DC9432C248FA20008F90E /* NetworkServices */,
 				5413B23C2C25164C001F48D3 /* Models */,
 				540B412C2C1D9D3700F717EA /* Assets.xcassets */,
@@ -136,6 +135,7 @@
 			children = (
 				540DC9412C248FA20008F90E /* NetworkingError.swift */,
 				540DC9422C248FA20008F90E /* UserService.swift */,
+				540DC9312C248CDE0008F90E /* UserDetailService.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */,
-				540DC9342C248CE80008F90E /* UserDetailServices.swift in Sources */,
+				540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */,
 				540DC93F2C248DB20008F90E /* Repo.swift in Sources */,
 				540B41292C1D9D3500F717EA /* GithubMobileApp.swift in Sources */,
 				540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */,
