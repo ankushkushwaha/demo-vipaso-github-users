@@ -24,6 +24,7 @@ struct UserDetailView: View {
                 } else if let error = viewModel.error {
                     Text(error.errorMessage)
                         .multilineTextAlignment(.center)
+                        .padding()
                 }
             }
         }
@@ -46,8 +47,10 @@ extension UserDetailView {
                     .clipShape(Circle())
                     .padding()
             } placeholder: {
-                ProgressView()
-                    .frame(width: 100, height: 100)
+                if viewModel.error == nil {
+                    ProgressView()
+                        .frame(width: 100, height: 100)
+                }
             }
 
             Text(viewModel.userName)
@@ -59,7 +62,7 @@ extension UserDetailView {
                 if viewModel.error == nil,
                    viewModel.repos.isEmpty {
                     Text("No public repo found")
-                } else {
+                } else if !viewModel.repos.isEmpty {
                     Text("Public repo list: ")
                         .padding(.horizontal)
                 }

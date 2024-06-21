@@ -23,6 +23,7 @@ struct UserListView: View {
                 } else if let error = viewModel.error {
                     Text(error.errorMessage)
                         .multilineTextAlignment(.center)
+                        .padding()
                 }
             }
         }
