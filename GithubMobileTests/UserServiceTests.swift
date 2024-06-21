@@ -20,7 +20,7 @@ final class UserServiceTests: XCTestCase {
         case .success(let data):
             
             XCTAssertTrue(data.count > 0)
-            XCTAssertEqual(data.first?.id, 9079960)
+            XCTAssertEqual(data.first?.id, 9079960) // First item's id in mock data
             
         case .failure(let err):
             XCTFail("Could not fetch data \(err)")
