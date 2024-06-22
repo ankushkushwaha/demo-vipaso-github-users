@@ -10,7 +10,7 @@ import Foundation
 class MockJsonData {
 
     func getJsonData() -> Data? {
-        getMockData(fileName: "MockTestData")
+        getMockData(fileName: "MockSearchUsers")
     }
 
     func getRepoJsonData() -> Data? {
