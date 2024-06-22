@@ -17,7 +17,7 @@ struct UserService: UserServiceProtocol {
 
     func fetchUserList(searchQuery: String) async -> Result<[User], Error> {
 
-        let urlString = "https://api.github.com/search/users?q=\(searchQuery)"
+        let urlString = "\(Endpoints().search)\(searchQuery)"
         guard let url = URL(string: urlString) else {
             return .failure(NetworkingError.invalidURL)
         }

@@ -28,6 +28,7 @@
 		5413B2472C25298C001F48D3 /* MockRepoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5413B2462C25298C001F48D3 /* MockRepoData.json */; };
 		5413B2492C252EB3001F48D3 /* UserDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */; };
 		5413B24B2C2553D2001F48D3 /* MockUserDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 5413B24A2C2553D2001F48D3 /* MockUserDetail.json */; };
+		54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDC1EE2C26CB3B007F18FE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		5413B2462C25298C001F48D3 /* MockRepoData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = MockRepoData.json; path = ../../../../MockRepoData.json; sourceTree = "<group>"; };
 		5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelTests.swift; sourceTree = "<group>"; };
 		5413B24A2C2553D2001F48D3 /* MockUserDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = MockUserDetail.json; path = ../../../../MockUserDetail.json; sourceTree = "<group>"; };
+		54DDC1EE2C26CB3B007F18FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				540DC9412C248FA20008F90E /* NetworkingError.swift */,
 				540DC9422C248FA20008F90E /* UserService.swift */,
 				540DC9312C248CDE0008F90E /* UserDetailService.swift */,
+				54DDC1EE2C26CB3B007F18FE /* Constants.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */,
+				54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */,
 				540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */,
 				540DC93F2C248DB20008F90E /* Repo.swift in Sources */,
 				540B41292C1D9D3500F717EA /* GithubMobileApp.swift in Sources */,

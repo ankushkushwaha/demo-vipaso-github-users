@@ -20,10 +20,10 @@ struct UserDetailService: UserDetailServiceProtocol {
     }
     
     func fetchUserDetail(userName: String) async -> Result<User, Error> {
-        let urlString = "https://api.github.com/users/\(userName)"
+        let urlString = "\(Endpoints().userDetails)\(userName)"
         return await fetch(type: User.self, url: urlString)
     }
-    
+
     private func fetch<T: Decodable>(type: T.Type,
                                      url: String) async -> Result<T, Error> {
         
@@ -31,8 +31,15 @@ struct UserDetailService: UserDetailServiceProtocol {
             return .failure(NetworkingError.invalidURL)
         }
 
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(Constants.accessToken)",
+                         forHTTPHeaderField: "Authorization")
+
         do {
-            let (data, response) = try await session.fetchData(type: type, url: url)
+
+            let (data, response) = try await session.fetchData(type: type,
+                                                               request: request)
 
             let model = try JSONDecoder().decode(type.self, from: data)
 
@@ -59,11 +66,13 @@ protocol UserDetailServiceProtocol {
 
 protocol UserDetailSessionProtocol {
     // Inject generic T.Type for unit tests
-    func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse)
+    func fetchData<T>(type: T.Type,
+                      request: URLRequest) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: UserDetailSessionProtocol {
-    func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse) {
-        try await self.data(from: url)
+    func fetchData<T>(type: T.Type,
+                      request: URLRequest) async throws -> (Data, URLResponse) {
+        try await self.data(for: request)
     }
 }
