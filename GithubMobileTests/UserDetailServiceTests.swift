@@ -124,7 +124,7 @@ extension UserDetailServiceTests {
                                                       httpVersion: "HTTP/1.1",
                                                       headerFields: nil)
 
-            let mockData = MockTestJsonData().getRepoJsonData()
+            let mockData = MockJsonData().getRepoJsonData()
 
             guard let mockData = mockData,
                   let response = fakeSuccessResponse else {
@@ -140,7 +140,7 @@ extension UserDetailServiceTests {
                                                       httpVersion: "HTTP/1.1",
                                                       headerFields: nil)
 
-            let mockData = MockTestJsonData().getUserDetailJsonData()
+            let mockData = MockJsonData().getUserDetailJsonData()
 
             guard let mockData = mockData,
                   let response = fakeSuccessResponse else {

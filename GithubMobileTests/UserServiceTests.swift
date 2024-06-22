@@ -71,7 +71,7 @@ struct MockTestURLSession: URLSessionProtocol {
                                                   httpVersion: "HTTP/1.1",
                                                   headerFields: nil)
 
-        let mockData = MockTestJsonData().getJsonData()
+        let mockData = MockJsonData().getJsonData()
 
         guard let mockData = mockData,
               let response = fakeSuccessResponse else {

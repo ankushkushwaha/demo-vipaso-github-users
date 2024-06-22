@@ -58,7 +58,7 @@ extension UserListViewModelTests {
             if let error = error {
                 return .failure(error)
 
-            } else if let models = MockTestModelProvider().userList() {
+            } else if let models = MockModelProvider().userList() {
                 return .success(models)
             }
 

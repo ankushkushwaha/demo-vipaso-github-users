@@ -21,7 +21,7 @@ final class UserDetailViewModelTests: XCTestCase {
         await sut.fetchRepo()
 
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.repos.count, 30)
+        XCTAssertEqual(sut.repos.count, 27)
     }
 
     func testFetchReposFail() async {
@@ -129,7 +129,7 @@ extension UserDetailViewModelTests {
             if let error = error {
                 return .failure(error)
 
-            } else if let models = MockTestModelProvider().repoList() {
+            } else if let models = MockModelProvider().repoList() {
                 return .success(models)
             }
 
@@ -140,7 +140,7 @@ extension UserDetailViewModelTests {
             if let error = error {
                 return .failure(error)
 
-            } else if let models = MockTestModelProvider().userDetail() {
+            } else if let models = MockModelProvider().userDetail() {
                 return .success(models)
             }
 
