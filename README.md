@@ -2,7 +2,7 @@
 
 The app fetches and shows list of github users according to search query entered by user.
 
-![Alt Text](preview.gif)
+![Alt Text](sample.gif)
 
 
 ### Development Environment
