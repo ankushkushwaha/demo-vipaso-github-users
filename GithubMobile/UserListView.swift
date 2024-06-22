@@ -42,6 +42,7 @@ extension UserListView {
                 }
                 .listStyle(.plain)
             .navigationTitle("Github Users")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $viewModel.searchText, prompt: "Search")
     }
