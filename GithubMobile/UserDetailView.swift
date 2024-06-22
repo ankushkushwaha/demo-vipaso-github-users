@@ -37,7 +37,7 @@ struct UserDetailView: View {
 extension UserDetailView {
 
     @ViewBuilder
-    func mainView() -> some View {
+    private func mainView() -> some View {
         VStack {
             AsyncImage(url: URL(string: viewModel.imageUrl)) { image in
                 image
@@ -56,48 +56,9 @@ extension UserDetailView {
                 .font(.system(size: 15, weight: .medium))
                 .padding(.bottom, 10)
 
-            HStack(alignment: .top, spacing: 0) {
-                Text("Followers: \(viewModel.followers)")
-                    .font(.system(size: 15, weight: .light))
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            informationView()
 
-                Text("Following: \(viewModel.followings)")
-                    .font(.system(size: 15, weight: .light))
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
-            }
-            .padding(.horizontal, 16)
-
-            Spacer().frame(height: 8)
-
-            HStack(alignment: .top, spacing: 0) {
-                Text("Public Repos: \(viewModel.publicRepos)")
-                    .font(.system(size: 15, weight: .light))
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
-
-                Text("Public Gist: \(viewModel.publicGists)")
-                    .font(.system(size: 15, weight: .light))
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
-            }
-            .padding(.horizontal, 16)
-
-            Button {
-                if !viewModel.blog.isEmpty, let url = URL(string: viewModel.blog) {
-                    UIApplication.shared.open(url)
-                }
-            } label: {
-                HStack {
-                    Text("Blog: ")
-                        .foregroundColor(.black)
-                        .font(.system(size: 15, weight: .light))
-                    +
-                    Text(viewModel.blog)
-                        .font(.system(size: 15, weight: .light))
-                        .foregroundColor(.blue)
-                        .underline()
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(16)
-            }
+            blogLink()
 
             if !viewModel.isLoading {
 
@@ -123,5 +84,65 @@ extension UserDetailView {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
+    }
+
+    @ViewBuilder
+    private func blogLink() -> some View {
+        Button {
+            if !viewModel.blog.isEmpty, let url = URL(string: viewModel.blog) {
+                UIApplication.shared.open(url)
+            }
+        } label: {
+            HStack {
+                Text("Blog: ")
+                    .foregroundColor(.black)
+                    .font(.system(size: 15, weight: .light))
+                +
+                Text(viewModel.blog)
+                    .font(.system(size: 15, weight: .light))
+                    .foregroundColor(.blue)
+                    .underline()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+        }
+    }
+
+    @ViewBuilder
+    private func informationView() -> some View {
+
+        VStack(spacing: 8) {
+
+            HStack(alignment: .top, spacing: 5) {
+                Text("Name: \(viewModel.name)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+
+                Text("Hireable: \(viewModel.hireable)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            }
+
+            HStack(alignment: .top, spacing: 5) {
+                Text("Followers: \(viewModel.followers)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+
+                Text("Following: \(viewModel.followings)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            }
+
+            HStack(alignment: .top, spacing: 5) {
+                Text("Public Repos: \(viewModel.publicRepos)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+
+                Text("Public Gist: \(viewModel.publicGists)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            }
+        }
+        .padding(.horizontal, 16)
     }
 }

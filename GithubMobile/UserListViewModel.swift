@@ -42,8 +42,7 @@ class UserListViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    @MainActor
-    func fetchUsers(searchText: String) async {
+    @MainActor func fetchUsers(searchText: String) async {
 
         isLoading = true
         error = nil

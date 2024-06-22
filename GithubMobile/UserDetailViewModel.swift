@@ -29,8 +29,7 @@ class UserDetailViewModel: ObservableObject {
        }
     }
 
-    @MainActor
-    func fetchRepo() async {
+    @MainActor func fetchRepo() async {
         isLoading = true
         error = nil
 
@@ -49,8 +48,7 @@ class UserDetailViewModel: ObservableObject {
         }
     }
 
-    @MainActor
-    func fetchUserDetail() async {
+    @MainActor func fetchUserDetail() async {
         isLoading = true
         error = nil
 
@@ -68,7 +66,9 @@ class UserDetailViewModel: ObservableObject {
             error = NetworkingError.requestFailed(err.localizedDescription)
         }
     }
+}
 
+extension UserDetailViewModel {
     var imageUrl: String {
         user.avatarUrl
     }
@@ -111,4 +111,21 @@ class UserDetailViewModel: ObservableObject {
         }
         return "-"
     }
+
+    var name: String {
+        if let value = user.name {
+            return String(value)
+        }
+        return "-"
+    }
+
+    var hireable: String {
+        guard let value = user.hireable else {
+            return "-"
+        }
+        let hireable = value ? "Yes" : "No"
+
+        return hireable
+    }
+
 }

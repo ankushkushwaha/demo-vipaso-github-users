@@ -13,6 +13,8 @@ struct User: Identifiable, Codable, Hashable {
     let blog: String?
     let followers: Int?
     let following: Int?
+    let name: String?
+    let hireable: Bool?
     let avatarUrl: String
     let repoUrl: String
     let publicGists: Int?
@@ -24,6 +26,8 @@ struct User: Identifiable, Codable, Hashable {
         case blog
         case followers
         case following
+        case name
+        case hireable
         case avatarUrl = "avatar_url"
         case repoUrl = "repos_url"
         case publicGists = "public_gists"
