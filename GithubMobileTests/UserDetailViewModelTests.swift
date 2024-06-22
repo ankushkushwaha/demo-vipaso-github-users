@@ -71,6 +71,49 @@ final class UserDetailViewModelTests: XCTestCase {
                        NetworkingError.requestFailed("Mock fetch failed").errorId)
         XCTAssertEqual(sut.followers, "-")
     }
+    
+    func testBlog() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+
+        XCTAssertEqual(sut.blog, "https://api.github.com/users/ankushkushwaha")
+    }
+    
+    func testFollowers() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+
+        XCTAssertEqual(sut.followers, "3")
+    }
+    
+    func testFollowing() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+
+        XCTAssertEqual(sut.followings, "14")
+    }
+    
+    func testPublicGists() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+
+        XCTAssertEqual(sut.publicGists, "1")
+    }
+    
+    func testPublicRepo() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+
+        XCTAssertEqual(sut.publicRepos, "27")
+    }
+
+
+
 }
 
 extension UserDetailViewModelTests {
@@ -119,7 +162,7 @@ extension UserDetailViewModelTests {
 extension UserDetailViewModelTests {
     private var mockUser: User {
         let user = User(id: 11902070, login: "ankushkushwaha",
-                        blog: "https://avatars.githubusercontent.com/u/11902070?v=4",
+                        blog: nil,
                         followers: nil, following: nil,
                         avatarUrl: "https://avatars.githubusercontent.com/u/11902070?v=4",
                         repoUrl: "https://api.github.com/users/ankushkushwaha/repos",

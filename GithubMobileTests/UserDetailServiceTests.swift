@@ -104,18 +104,17 @@ extension UserDetailServiceTests {
         }
 
         var error: Error?
-
-        func fetchData<T>(type: T.Type, url: URL) async throws -> (Data, URLResponse) {
-
+        
+        func fetchData<T>(type: T.Type, request: URLRequest) async throws -> (Data, URLResponse) {
             if let error = error {
                 throw error
             }
             
             if type == User.self {
-                return try await mockFetchUserDetailData(url: url)
+                return try await mockFetchUserDetailData(url: request.url!)
             }
                
-            return try await mockFetchRepoData(url: url)
+            return try await mockFetchRepoData(url: request.url!)
         }
 
         private func mockFetchRepoData(url: URL) async throws -> (Data, URLResponse) {
