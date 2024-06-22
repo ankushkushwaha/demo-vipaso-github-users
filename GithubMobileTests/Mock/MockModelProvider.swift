@@ -9,12 +9,12 @@ import Foundation
 @testable import GithubMobile
 
 struct MockModelProvider {
-    
+
     func userList() -> [User]? {
         guard let data = MockJsonData().getJsonData() else {
             return nil
         }
-        
+
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
@@ -25,7 +25,7 @@ struct MockModelProvider {
             return nil
         }
     }
-    
+
     func repoList() -> [Repo]? {
         guard let data = MockJsonData().getRepoJsonData() else {
             return nil
@@ -40,7 +40,7 @@ struct MockModelProvider {
             return nil
         }
     }
-    
+
     func userDetail() -> User? {
         guard let data = MockJsonData().getUserDetailJsonData() else {
             return nil

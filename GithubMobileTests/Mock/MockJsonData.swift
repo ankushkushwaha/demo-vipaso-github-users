@@ -8,20 +8,19 @@
 import Foundation
 
 class MockJsonData {
-   
+
     func getJsonData() -> Data? {
         getMockData(fileName: "MockTestData")
     }
-    
+
     func getRepoJsonData() -> Data? {
         getMockData(fileName: "MockRepoData")
     }
-    
+
     func getUserDetailJsonData() -> Data? {
         getMockData(fileName: "MockUserDetail")
     }
 
-    
     private func getMockData(fileName: String) -> Data? {
         let bundle = Bundle(for: type(of: self))
         guard let fileURL = bundle.url(forResource: fileName, withExtension: "json") else {
