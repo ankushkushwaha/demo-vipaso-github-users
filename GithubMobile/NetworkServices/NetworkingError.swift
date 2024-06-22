@@ -8,34 +8,34 @@
 import Foundation
 
 enum NetworkingError: Error {
-    
+
     case invalidURL
-    case requestFailed(description: String)
-    case noSearchResultsAvailable(description: String?)
+    case requestFailed(_ description: String)
+    case noSearchResultsAvailable(_ description: String?)
     case httpError(Int)
-    
+
     var errorMessage: String {
         switch self {
         case .invalidURL:
             return String(localized: "Invalid Url")
-        case .requestFailed(_):
+        case .requestFailed:
             return String(localized: "Could not fetch data. Please check your internet connection.")
-        case .noSearchResultsAvailable(_):
+        case .noSearchResultsAvailable:
             return String(localized: "No search results available for entered keyword.")
         case .httpError(let errorCode):
-            return String(localized: "Error: \(errorCode)")
+            return "Error: \(errorCode)"
         }
     }
-    
+
     var errorId: Int {
         switch self {
         case .invalidURL:
             return 1
-        case .requestFailed(_):
+        case .requestFailed:
             return 2
-        case .noSearchResultsAvailable(_):
+        case .noSearchResultsAvailable:
             return 3
-        case .httpError( _):
+        case .httpError:
             return 4
         }
     }

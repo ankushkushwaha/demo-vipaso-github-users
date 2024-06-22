@@ -14,25 +14,25 @@
 		540DC9292C2489250008F90E /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9252C2489250008F90E /* UserListViewModel.swift */; };
 		540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9262C2489250008F90E /* UserDetailView.swift */; };
 		540DC92B2C2489250008F90E /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9272C2489250008F90E /* UserDetailViewModel.swift */; };
-		540DC9342C248CE80008F90E /* UserDetailServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9312C248CDE0008F90E /* UserDetailServices.swift */; };
+		540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9312C248CDE0008F90E /* UserDetailService.swift */; };
 		540DC93F2C248DB20008F90E /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93D2C248DB20008F90E /* Repo.swift */; };
 		540DC9402C248DB20008F90E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93E2C248DB20008F90E /* User.swift */; };
 		540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9412C248FA20008F90E /* NetworkingError.swift */; };
 		540DC9452C248FA20008F90E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9422C248FA20008F90E /* UserService.swift */; };
-		5413B2392C2493D1001F48D3 /* MockTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5413B2352C2493D1001F48D3 /* MockTestData.json */; };
-		5413B23A2C2493D1001F48D3 /* MockTestJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2362C2493D1001F48D3 /* MockTestJsonData.swift */; };
-		5413B23B2C2493D1001F48D3 /* MockTestModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2372C2493D1001F48D3 /* MockTestModelProvider.swift */; };
+		5413B2412C2519ED001F48D3 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2402C2519ED001F48D3 /* UserServiceTests.swift */; };
+		5413B2432C251DC9001F48D3 /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B23F2C251981001F48D3 /* UserListViewModelTests.swift */; };
+		5413B2452C252887001F48D3 /* UserDetailServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */; };
+		5413B2492C252EB3001F48D3 /* UserDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */; };
+		543A1B1F2C26E4E100B6D545 /* MockUserDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 543A1B1A2C26E4E000B6D545 /* MockUserDetail.json */; };
+		543A1B202C26E4E100B6D545 /* MockJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A1B1B2C26E4E100B6D545 /* MockJsonData.swift */; };
+		543A1B212C26E4E100B6D545 /* MockModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A1B1C2C26E4E100B6D545 /* MockModelProvider.swift */; };
+		543A1B222C26E4E100B6D545 /* MockRepoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 543A1B1D2C26E4E100B6D545 /* MockRepoData.json */; };
+		543A1B232C26E4E100B6D545 /* MockTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 543A1B1E2C26E4E100B6D545 /* MockTestData.json */; };
+		54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDC1EE2C26CB3B007F18FE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		540B41362C1D9D3700F717EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 540B411D2C1D9D3500F717EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 540B41242C1D9D3500F717EA;
-			remoteInfo = GithubMobile;
-		};
-		540B41402C1D9D3700F717EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 540B411D2C1D9D3500F717EA /* Project object */;
 			proxyType = 1;
@@ -47,19 +47,26 @@
 		540B412C2C1D9D3700F717EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		540B412F2C1D9D3700F717EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		540B41352C1D9D3700F717EA /* GithubMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		540B413F2C1D9D3700F717EA /* GithubMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		540DC9242C2489250008F90E /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		540DC9252C2489250008F90E /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		540DC9262C2489250008F90E /* UserDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		540DC9272C2489250008F90E /* UserDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
-		540DC9312C248CDE0008F90E /* UserDetailServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailServices.swift; sourceTree = "<group>"; };
+		540DC9312C248CDE0008F90E /* UserDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailService.swift; sourceTree = "<group>"; };
 		540DC93D2C248DB20008F90E /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		540DC93E2C248DB20008F90E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		540DC9412C248FA20008F90E /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		540DC9422C248FA20008F90E /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		5413B2352C2493D1001F48D3 /* MockTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockTestData.json; sourceTree = "<group>"; };
-		5413B2362C2493D1001F48D3 /* MockTestJsonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTestJsonData.swift; sourceTree = "<group>"; };
-		5413B2372C2493D1001F48D3 /* MockTestModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTestModelProvider.swift; sourceTree = "<group>"; };
+		5413B23F2C251981001F48D3 /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
+		5413B2402C2519ED001F48D3 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
+		5413B2422C251B8B001F48D3 /* GithubMobile.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubMobile.xctestplan; sourceTree = "<group>"; };
+		5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailServiceTests.swift; sourceTree = "<group>"; };
+		5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelTests.swift; sourceTree = "<group>"; };
+		543A1B1A2C26E4E000B6D545 /* MockUserDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockUserDetail.json; sourceTree = "<group>"; };
+		543A1B1B2C26E4E100B6D545 /* MockJsonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJsonData.swift; sourceTree = "<group>"; };
+		543A1B1C2C26E4E100B6D545 /* MockModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockModelProvider.swift; sourceTree = "<group>"; };
+		543A1B1D2C26E4E100B6D545 /* MockRepoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockRepoData.json; sourceTree = "<group>"; };
+		543A1B1E2C26E4E100B6D545 /* MockTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockTestData.json; sourceTree = "<group>"; };
+		54DDC1EE2C26CB3B007F18FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,19 +84,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		540B413C2C1D9D3700F717EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		540B411C2C1D9D3500F717EA = {
 			isa = PBXGroup;
 			children = (
+				5413B2422C251B8B001F48D3 /* GithubMobile.xctestplan */,
 				540B41272C1D9D3500F717EA /* GithubMobile */,
 				540B41382C1D9D3700F717EA /* GithubMobileTests */,
 				540B41262C1D9D3500F717EA /* Products */,
@@ -101,7 +102,6 @@
 			children = (
 				540B41252C1D9D3500F717EA /* GithubMobile.app */,
 				540B41352C1D9D3700F717EA /* GithubMobileTests.xctest */,
-				540B413F2C1D9D3700F717EA /* GithubMobileUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,11 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				540B41282C1D9D3500F717EA /* GithubMobileApp.swift */,
-				540DC9262C2489250008F90E /* UserDetailView.swift */,
-				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
 				540DC9242C2489250008F90E /* UserListView.swift */,
 				540DC9252C2489250008F90E /* UserListViewModel.swift */,
-				540DC9312C248CDE0008F90E /* UserDetailServices.swift */,
+				540DC9262C2489250008F90E /* UserDetailView.swift */,
+				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
 				540DC9432C248FA20008F90E /* NetworkServices */,
 				5413B23C2C25164C001F48D3 /* Models */,
 				540B412C2C1D9D3700F717EA /* Assets.xcassets */,
@@ -134,7 +133,11 @@
 		540B41382C1D9D3700F717EA /* GithubMobileTests */ = {
 			isa = PBXGroup;
 			children = (
-				5413B2382C2493D1001F48D3 /* Mock */,
+				543A1B242C26E50E00B6D545 /* Mock */,
+				5413B2402C2519ED001F48D3 /* UserServiceTests.swift */,
+				5413B23F2C251981001F48D3 /* UserListViewModelTests.swift */,
+				5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */,
+				5413B2482C252EB3001F48D3 /* UserDetailViewModelTests.swift */,
 			);
 			path = GithubMobileTests;
 			sourceTree = "<group>";
@@ -144,19 +147,10 @@
 			children = (
 				540DC9412C248FA20008F90E /* NetworkingError.swift */,
 				540DC9422C248FA20008F90E /* UserService.swift */,
+				540DC9312C248CDE0008F90E /* UserDetailService.swift */,
+				54DDC1EE2C26CB3B007F18FE /* Constants.swift */,
 			);
 			path = NetworkServices;
-			sourceTree = "<group>";
-		};
-		5413B2382C2493D1001F48D3 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				5413B2352C2493D1001F48D3 /* MockTestData.json */,
-				5413B2362C2493D1001F48D3 /* MockTestJsonData.swift */,
-				5413B2372C2493D1001F48D3 /* MockTestModelProvider.swift */,
-			);
-			name = Mock;
-			path = ../../../../.Trash/GithubMobile/GithubMobileTests/Mock;
 			sourceTree = "<group>";
 		};
 		5413B23C2C25164C001F48D3 /* Models */ = {
@@ -166,6 +160,18 @@
 				540DC93E2C248DB20008F90E /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		543A1B242C26E50E00B6D545 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				543A1B1B2C26E4E100B6D545 /* MockJsonData.swift */,
+				543A1B1C2C26E4E100B6D545 /* MockModelProvider.swift */,
+				543A1B1D2C26E4E100B6D545 /* MockRepoData.json */,
+				543A1B1E2C26E4E100B6D545 /* MockTestData.json */,
+				543A1B1A2C26E4E000B6D545 /* MockUserDetail.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,24 +212,6 @@
 			productReference = 540B41352C1D9D3700F717EA /* GithubMobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		540B413E2C1D9D3700F717EA /* GithubMobileUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 540B414F2C1D9D3700F717EA /* Build configuration list for PBXNativeTarget "GithubMobileUITests" */;
-			buildPhases = (
-				540B413B2C1D9D3700F717EA /* Sources */,
-				540B413C2C1D9D3700F717EA /* Frameworks */,
-				540B413D2C1D9D3700F717EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				540B41412C1D9D3700F717EA /* PBXTargetDependency */,
-			);
-			name = GithubMobileUITests;
-			productName = GithubMobileUITests;
-			productReference = 540B413F2C1D9D3700F717EA /* GithubMobileUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,10 +226,6 @@
 						CreatedOnToolsVersion = 15.3;
 					};
 					540B41342C1D9D3700F717EA = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 540B41242C1D9D3500F717EA;
-					};
-					540B413E2C1D9D3700F717EA = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 540B41242C1D9D3500F717EA;
 					};
@@ -262,7 +246,6 @@
 			targets = (
 				540B41242C1D9D3500F717EA /* GithubMobile */,
 				540B41342C1D9D3700F717EA /* GithubMobileTests */,
-				540B413E2C1D9D3700F717EA /* GithubMobileUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -281,14 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5413B2392C2493D1001F48D3 /* MockTestData.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		540B413D2C1D9D3700F717EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				543A1B232C26E4E100B6D545 /* MockTestData.json in Resources */,
+				543A1B1F2C26E4E100B6D545 /* MockUserDetail.json in Resources */,
+				543A1B222C26E4E100B6D545 /* MockRepoData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */,
-				540DC9342C248CE80008F90E /* UserDetailServices.swift in Sources */,
+				54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */,
+				540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */,
 				540DC93F2C248DB20008F90E /* Repo.swift in Sources */,
 				540B41292C1D9D3500F717EA /* GithubMobileApp.swift in Sources */,
 				540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */,
@@ -316,15 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5413B23B2C2493D1001F48D3 /* MockTestModelProvider.swift in Sources */,
-				5413B23A2C2493D1001F48D3 /* MockTestJsonData.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		540B413B2C1D9D3700F717EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				543A1B212C26E4E100B6D545 /* MockModelProvider.swift in Sources */,
+				543A1B202C26E4E100B6D545 /* MockJsonData.swift in Sources */,
+				5413B2492C252EB3001F48D3 /* UserDetailViewModelTests.swift in Sources */,
+				5413B2412C2519ED001F48D3 /* UserServiceTests.swift in Sources */,
+				5413B2432C251DC9001F48D3 /* UserListViewModelTests.swift in Sources */,
+				5413B2452C252887001F48D3 /* UserDetailServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +311,6 @@
 			isa = PBXTargetDependency;
 			target = 540B41242C1D9D3500F717EA /* GithubMobile */;
 			targetProxy = 540B41362C1D9D3700F717EA /* PBXContainerItemProxy */;
-		};
-		540B41412C1D9D3700F717EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 540B41242C1D9D3500F717EA /* GithubMobile */;
-			targetProxy = 540B41402C1D9D3700F717EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -476,8 +447,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,8 +475,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,40 +528,6 @@
 			};
 			name = Release;
 		};
-		540B41502C1D9D3700F717EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.gitusers.GithubMobileUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GithubMobile;
-			};
-			name = Debug;
-		};
-		540B41512C1D9D3700F717EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.gitusers.GithubMobileUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GithubMobile;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -617,15 +554,6 @@
 			buildConfigurations = (
 				540B414D2C1D9D3700F717EA /* Debug */,
 				540B414E2C1D9D3700F717EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		540B414F2C1D9D3700F717EA /* Build configuration list for PBXNativeTarget "GithubMobileUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				540B41502C1D9D3700F717EA /* Debug */,
-				540B41512C1D9D3700F717EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
