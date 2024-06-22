@@ -145,10 +145,10 @@
 		540DC9432C248FA20008F90E /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				54DDC1EE2C26CB3B007F18FE /* Constants.swift */,
 				540DC9412C248FA20008F90E /* NetworkingError.swift */,
 				540DC9422C248FA20008F90E /* UserService.swift */,
 				540DC9312C248CDE0008F90E /* UserDetailService.swift */,
-				54DDC1EE2C26CB3B007F18FE /* Constants.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
