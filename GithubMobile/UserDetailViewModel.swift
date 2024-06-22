@@ -13,7 +13,7 @@ class UserDetailViewModel: ObservableObject {
     @Published var user: User
     @Published var isLoading: Bool = false
     @Published var error: NetworkingError?
-    
+
     private let service: UserDetailServiceProtocol
 
     init(user: User,
@@ -28,7 +28,7 @@ class UserDetailViewModel: ObservableObject {
             await fetchRepo()
        }
     }
-    
+
     @MainActor
     func fetchRepo() async {
         isLoading = true
@@ -48,7 +48,7 @@ class UserDetailViewModel: ObservableObject {
             error = NetworkingError.requestFailed(err.localizedDescription)
         }
     }
-    
+
     @MainActor
     func fetchUserDetail() async {
         isLoading = true
@@ -76,7 +76,7 @@ class UserDetailViewModel: ObservableObject {
     var userName: String {
         user.login
     }
-    
+
     var followers: String {
         if let followers = user.followers {
             return String(followers)
@@ -90,21 +90,21 @@ class UserDetailViewModel: ObservableObject {
         }
         return "-"
     }
-    
+
     var blog: String {
         if let value = user.blog {
             return String(value)
         }
         return ""
     }
-    
+
     var publicGists: String {
         if let value = user.publicGists {
             return String(value)
         }
         return "-"
     }
-    
+
     var publicRepos: String {
         if let value = user.publicRepos {
             return String(value)

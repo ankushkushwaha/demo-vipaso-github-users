@@ -62,7 +62,7 @@ final class UserDetailServiceTests: XCTestCase {
     func testFetchUserDetailFail() async {
         var mockSession = MockTestURLSession()
         mockSession.error = MockTestURLSession.DataError.mockDataError
-        
+
         let sut = UserDetailService(session: mockSession)
 
         let result = await sut.fetchUserDetail(userName: "ankushkushwaha")
@@ -76,7 +76,7 @@ final class UserDetailServiceTests: XCTestCase {
                            err as! MockTestURLSession.DataError)
         }
     }
-    
+
     func testInvalidUrl() async {
         let mockSession = MockTestURLSession()
         let sut = UserDetailService(session: mockSession)
@@ -104,16 +104,16 @@ extension UserDetailServiceTests {
         }
 
         var error: Error?
-        
+
         func fetchData<T>(type: T.Type, request: URLRequest) async throws -> (Data, URLResponse) {
             if let error = error {
                 throw error
             }
-            
+
             if type == User.self {
                 return try await mockFetchUserDetailData(url: request.url!)
             }
-               
+
             return try await mockFetchRepoData(url: request.url!)
         }
 
@@ -132,7 +132,7 @@ extension UserDetailServiceTests {
             }
             return (mockData, response)
         }
-        
+
         private func mockFetchUserDetailData(url: URL) async throws -> (Data, URLResponse) {
 
             let fakeSuccessResponse = HTTPURLResponse(url: url,

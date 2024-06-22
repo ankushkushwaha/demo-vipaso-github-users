@@ -14,11 +14,11 @@ struct UserDetailService: UserDetailServiceProtocol {
     init(session: UserDetailSessionProtocol = URLSession.shared) {
         self.session = session
     }
-    
+
     func fetchRepo(urlString: String) async -> Result<[Repo], Error> {
         await fetch(type: [Repo].self, url: urlString)
     }
-    
+
     func fetchUserDetail(userName: String) async -> Result<User, Error> {
         let urlString = "\(Endpoints().userDetails)\(userName)"
         return await fetch(type: User.self, url: urlString)
@@ -26,7 +26,7 @@ struct UserDetailService: UserDetailServiceProtocol {
 
     private func fetch<T: Decodable>(type: T.Type,
                                      url: String) async -> Result<T, Error> {
-        
+
         guard let url = URL(string: url) else {
             return .failure(NetworkingError.invalidURL)
         }
@@ -51,7 +51,7 @@ struct UserDetailService: UserDetailServiceProtocol {
                 return .failure(NetworkingError.httpError(httpResponse.statusCode))
             }
             return .success(model)
-            
+
         } catch {
             return .failure(error)
         }

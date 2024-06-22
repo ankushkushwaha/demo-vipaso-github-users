@@ -17,7 +17,7 @@ struct Endpoints {
     var search: String {
         "\(baseUrl)/search/users?q="
     }
-    
+
     var userDetails: String {
         "\(baseUrl)/users/"
     }
