@@ -16,5 +16,5 @@ The app fetches and shows list of github users according to search query entered
 
 ### Project Information
 
-- The app searches the users and shows details of selected user in detail view.
+- App is built by using MVVM archicture 
 
