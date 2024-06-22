@@ -68,7 +68,7 @@ final class UserDetailServiceTests: XCTestCase {
         let result = await sut.fetchUserDetail(userName: "ankushkushwaha")
 
         switch result {
-        case .success(let data):
+        case .success:
             XCTFail("Fetch should not succeed.")
 
         case .failure(let err):
