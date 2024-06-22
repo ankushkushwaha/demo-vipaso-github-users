@@ -95,7 +95,7 @@ class UserDetailViewModel: ObservableObject {
         if let value = user.blog {
             return String(value)
         }
-        return "-"
+        return ""
     }
     
     var publicGists: String {

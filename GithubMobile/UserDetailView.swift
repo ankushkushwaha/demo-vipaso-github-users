@@ -9,16 +9,16 @@ import SwiftUI
 
 struct UserDetailView: View {
     @ObservedObject private var viewModel: UserDetailViewModel
-
+    
     init(viewModel: UserDetailViewModel) {
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
         VStack {
             ZStack {
                 mainView()
-
+                
                 if viewModel.isLoading {
                     ProgressView()
                 } else if let error = viewModel.error {
@@ -35,7 +35,7 @@ struct UserDetailView: View {
 }
 
 extension UserDetailView {
-
+    
     @ViewBuilder
     func mainView() -> some View {
         VStack {
@@ -43,55 +43,85 @@ extension UserDetailView {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 80, height: 80)
                     .clipShape(Circle())
-                    .padding()
             } placeholder: {
                 if viewModel.error == nil {
                     ProgressView()
                         .frame(width: 100, height: 100)
                 }
             }
-
+            
             Text(viewModel.userName)
-                .font(.headline)
-                .padding()
+                .font(.system(size: 15, weight: .medium))
+                .padding(.bottom, 10)
             
-            HStack {
+            HStack(alignment: .top, spacing: 0) {
                 Text("Followers: \(viewModel.followers)")
-                    .padding(.leading)
-                Spacer()
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                
                 Text("Following: \(viewModel.followings)")
-                    .padding(.trailing)
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
             }
+            .padding(.horizontal, 16)
             
-            HStack {
+            Spacer().frame(height: 8)
+            
+            HStack(alignment: .top, spacing: 0) {
                 Text("Public Repos: \(viewModel.publicRepos)")
-                    .padding(.leading)
-                Spacer()
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                
                 Text("Public Gist: \(viewModel.publicGists)")
-                    .padding(.trailing)
-           }
-        
-            Text("Blog: \(viewModel.blog)")
+                    .font(.system(size: 15, weight: .light))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            }
+            .padding(.horizontal, 16)
+            
+            Button {
+                if !viewModel.blog.isEmpty, let url = URL(string: viewModel.blog) {
+                    UIApplication.shared.open(url)
+                }
+            } label: {
+                HStack {
+                    Text("Blog: ")
+                        .foregroundColor(.black)
+                        .font(.system(size: 15, weight: .light))
+                    +
+                    Text(viewModel.blog)
+                        .font(.system(size: 15, weight: .light))
+                        .foregroundColor(.blue)
+                        .underline()
+                }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-
-
+                .padding(16)
+            }
+                        
             if !viewModel.isLoading {
-
+                
                 if viewModel.error == nil,
                    viewModel.repos.isEmpty {
                     Text("No public repo found")
                 } else if !viewModel.repos.isEmpty {
-                    Text("Public repo list: ")
-                        .padding(.horizontal)
+                    
+                    Divider()
+                    
+                    Text("Public repositories:")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 16)
+                        .font(.system(size: 16, weight: .semibold))
                 }
             }
-
+            
             List(viewModel.repos, id: \.name) { repo in
                 Text(repo.name)
+                    .font(.system(size: 15, weight: .light))
             }
+            .listStyle(.plain)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }
