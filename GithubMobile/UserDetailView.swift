@@ -38,19 +38,11 @@ extension UserDetailView {
 
     @ViewBuilder
     private func mainView() -> some View {
+        
         VStack {
-            AsyncImage(url: URL(string: viewModel.imageUrl)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-            } placeholder: {
-                if viewModel.error == nil {
-                    ProgressView()
-                        .frame(width: 100, height: 100)
-                }
-            }
+            
+            AsyncImageView(imageUrl: viewModel.imageUrl,
+                           size: .large)
 
             Text(viewModel.userName)
                 .font(.system(size: 15, weight: .medium))

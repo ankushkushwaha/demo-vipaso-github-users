@@ -9,12 +9,12 @@ import SwiftUI
 
 struct UserListView: View {
     @StateObject private var viewModel = UserListViewModel()
-
+    
     var body: some View {
         VStack {
             ZStack {
                 mainView()
-
+                
                 if viewModel.isLoading {
                     ProgressView()
                 } else if viewModel.error == nil,
@@ -31,21 +31,25 @@ struct UserListView: View {
 }
 
 extension UserListView {
-
+    
     private func mainView() -> some View {
         NavigationStack {
-                List(viewModel.data) { user in
-                    NavigationLink(destination:
-                            UserDetailView(viewModel: UserDetailViewModel(user: user))) {
-                        Text(user.login)
-                    }
+            List(viewModel.data) { user in
+                NavigationLink(destination:
+                                UserDetailView(viewModel: UserDetailViewModel(user: user))) {
+                    
+                    AsyncImageView(imageUrl: user.avatarUrl)
+                    
+                    Text(user.login)
                 }
-                .listStyle(.plain)
+            }
+            .listStyle(.plain)
             .navigationTitle("Github Users")
             .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $viewModel.searchText, prompt: "Search")
     }
+    
 }
 
 #Preview {
