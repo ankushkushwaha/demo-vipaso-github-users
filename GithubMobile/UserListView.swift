@@ -49,7 +49,6 @@ extension UserListView {
         }
         .searchable(text: $viewModel.searchText, prompt: "Search")
     }
-    
 }
 
 #Preview {
