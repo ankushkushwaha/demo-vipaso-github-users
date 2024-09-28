@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    static let accessToken = "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"
+    static let accessToken = "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"
 }
 
 struct Endpoints {
