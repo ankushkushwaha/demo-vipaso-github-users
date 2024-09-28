@@ -14,8 +14,8 @@ struct AsyncImageView: View {
         case large
     }
 
-    let size: Size
-    let imageUrl: String
+    private let size: Size
+    private let imageUrl: String
 
     init(imageUrl: String, size: Size = .small) {
         self.imageUrl = imageUrl
