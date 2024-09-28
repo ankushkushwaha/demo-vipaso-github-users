@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Repo: Codable {
+struct Repo: Codable, Equatable {
     let id: Int
     let name: String
+    
+    static func == (lhs: Repo, rhs: Repo) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name
+    }
 }
+

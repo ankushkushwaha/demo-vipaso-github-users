@@ -15,6 +15,8 @@ class UserDetailViewModel: ObservableObject {
     @Published var error: NetworkingError?
 
     private let service: UserDetailServiceProtocol
+    private var currentRepoPage = 1 // API returns same data for page 0, and 1
+    private var reposPerPage = 10
 
     init(user: User,
          service: UserDetailServiceProtocol = UserDetailService()) {
@@ -29,17 +31,33 @@ class UserDetailViewModel: ObservableObject {
        }
     }
 
-    @MainActor func fetchRepo() async {
+    func fetchNextRepoPage() {
+        
+        if currentRepoPage == totalRepoPages {
+            return // Last page is reached
+        }
+        
+        currentRepoPage += 1
+        
+        Task {
+            await fetchRepo(page: currentRepoPage)
+        }
+    }
+    
+    @MainActor func fetchRepo(page: Int = 1) async {
+//        print("Fetch: page: \(page)")
+        
         isLoading = true
         error = nil
 
-        let result = await service.fetchRepo(urlString: user.repoUrl)
+        let url = user.repoUrl + "?per_page=10&page=\(page)"
+        let result = await service.fetchRepo(urlString: url)
 
         isLoading = false
 
         switch result {
         case .success(let data):
-            repos = data
+            repos.append(contentsOf: data)
 
         case .failure(let err):
             print(err)
@@ -69,6 +87,23 @@ class UserDetailViewModel: ObservableObject {
 }
 
 extension UserDetailViewModel {
+    
+    var totalRepoPages: Int {
+        guard let publicRepos = user.publicRepos else {
+            return 1
+        }
+        
+        var totalPage = publicRepos / reposPerPage
+        if publicRepos % reposPerPage != 0 {
+            totalPage += 1
+        }
+        return totalPage
+    }
+    
+    var isMoreRepoItemsAvailable: Bool {
+        currentRepoPage < totalRepoPages
+    }
+    
     var imageUrl: String {
         user.avatarUrl
     }
