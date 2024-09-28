@@ -159,12 +159,15 @@ extension UserDetailViewModelTests {
 
 extension UserDetailViewModelTests {
     private var mockUser: User {
-        let user = User(id: 11902070, login: "ankushkushwaha",
+        let user =  User(id: 11902070, login: "ankushkushwaha",
                         blog: nil,
-                        followers: nil, following: nil,
-                        avatarUrl: "https://avatars.githubusercontent.com/u/11902070?v=4",
-                        repoUrl: "https://api.github.com/users/ankushkushwaha/repos",
-                        publicGists: nil, publicRepos: nil)
+                         followers: nil, following: nil,
+                         name: "Ankush",
+                         hireable: false,
+                         avatarUrl: "https://avatars.githubusercontent.com/u/11902070?v=4",
+                         repoUrl: "https://api.github.com/users/ankushkushwaha/repos",
+                         publicGists: nil,
+                         publicRepos: nil)
         return user
     }
 }
