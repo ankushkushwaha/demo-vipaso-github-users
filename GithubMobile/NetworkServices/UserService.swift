@@ -15,9 +15,9 @@ struct UserService: UserServiceProtocol {
         self.session = session
     }
 
-    func fetchUserList(searchQuery: String) async -> Result<[User], Error> {
+    func fetchUserList(searchQuery: String, page: Int, usersPerPage: Int) async -> Result<UserResponse, Error> {
 
-        let urlString = "\(Endpoints().search)\(searchQuery)"
+        let urlString = "\(Endpoints().search)\(searchQuery)&per_page=\(usersPerPage)&page=\(page)"
         guard let url = URL(string: urlString) else {
             return .failure(NetworkingError.invalidURL)
         }
@@ -25,7 +25,7 @@ struct UserService: UserServiceProtocol {
         do {
             let (data, response) = try await session.fetchData(url: url)
 
-            let users = try JSONDecoder().decode(UserResponse.self, from: data)
+            let responseModel = try JSONDecoder().decode(UserResponse.self, from: data)
 
             guard let httpResponse = response as? HTTPURLResponse else {
                 return .failure(NetworkingError.requestFailed("No http response."))
@@ -35,7 +35,7 @@ struct UserService: UserServiceProtocol {
                 return .failure(NetworkingError.httpError(httpResponse.statusCode))
             }
 
-            return .success(users.items)
+            return .success(responseModel)
         } catch {
             return .failure(error)
         }
@@ -44,7 +44,7 @@ struct UserService: UserServiceProtocol {
 }
 
 protocol UserServiceProtocol {
-    func fetchUserList(searchQuery: String) async -> Result<[User], Error>
+    func fetchUserList(searchQuery: String, page: Int, usersPerPage: Int) async -> Result<UserResponse, Error>
 }
 
 protocol URLSessionProtocol {

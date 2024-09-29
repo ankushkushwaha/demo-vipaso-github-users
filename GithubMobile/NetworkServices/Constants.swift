@@ -14,6 +14,7 @@ struct Constants {
 struct Endpoints {
     private let baseUrl = "https://api.github.com"
 
+    
     var search: String {
         "\(baseUrl)/search/users?q="
     }

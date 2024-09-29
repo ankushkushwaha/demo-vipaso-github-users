@@ -35,6 +35,18 @@ struct User: Identifiable, Codable, Hashable {
     }
 }
 
+extension User {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 struct UserResponse: Codable {
     let items: [User]
+    let totalCount: Int
+
+    enum CodingKeys: String, CodingKey {
+        case items
+        case totalCount = "total_count"
+    }
 }

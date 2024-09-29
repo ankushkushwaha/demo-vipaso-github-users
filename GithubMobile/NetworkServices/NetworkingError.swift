@@ -10,7 +10,7 @@ import Foundation
 enum NetworkingError: Error {
 
     case invalidURL
-    case requestFailed(_ description: String)
+    case requestFailed(String)
     case noSearchResultsAvailable(_ description: String?)
     case httpError(Int)
 
@@ -18,8 +18,8 @@ enum NetworkingError: Error {
         switch self {
         case .invalidURL:
             return String(localized: "Invalid Url")
-        case .requestFailed:
-            return String(localized: "Could not fetch data. Please check your internet connection.")
+        case .requestFailed(let message):
+            return message
         case .noSearchResultsAvailable:
             return String(localized: "No search results available for entered keyword.")
         case .httpError(let errorCode):

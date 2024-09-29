@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserListView: View {
+    
     @StateObject private var viewModel = UserListViewModel()
     
     var body: some View {
@@ -18,14 +19,12 @@ struct UserListView: View {
                 if viewModel.isLoading {
                     ProgressView()
                 } else if viewModel.error == nil,
-                          viewModel.data.isEmpty {
+                          viewModel.users.isEmpty {
                     Text("Please try to search Github user.")
-                } else if let error = viewModel.error {
-                    Text(error.errorMessage)
-                        .multilineTextAlignment(.center)
-                        .padding()
                 }
             }
+            .customAlert(showAlert: $viewModel.showError, title: "",
+                         message: viewModel.error?.errorMessage ?? "-")
         }
     }
 }
@@ -33,14 +32,32 @@ struct UserListView: View {
 extension UserListView {
     
     private func mainView() -> some View {
+        
         NavigationStack {
-            List(viewModel.data) { user in
-                NavigationLink(destination:
-                                UserDetailView(viewModel: UserDetailViewModel(user: user))) {
-                    
-                    AsyncImageView(imageUrl: user.avatarUrl)
-                    
-                    Text(user.login)
+            
+            List {
+                ForEach (viewModel.users) { user in
+                    NavigationLink(destination:
+                                    UserDetailView(viewModel: UserDetailViewModel(user: user))) {
+                        
+                        AsyncImageView(imageUrl: user.avatarUrl)
+                        
+                        Text(user.login)
+                            .onAppear {
+                                
+                                // Check if the item is the last one
+                                if user == viewModel.users.last {
+                                    
+                                    viewModel.fetchNextPage()
+                                }
+                            }
+                    }
+                }
+                
+                if viewModel.isMoreSearchResultsAvailable {
+                    ProgressView()
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             .listStyle(.plain)
