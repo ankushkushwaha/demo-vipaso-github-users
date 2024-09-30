@@ -53,7 +53,6 @@ protocol UserServiceProtocol {
 }
 
 protocol URLSessionProtocol {
-    // Inject generic T.Type for unit tests
     func fetchData<T>(type: T.Type,
                       request: URLRequest) async throws -> (Data, URLResponse)
 
