@@ -97,7 +97,7 @@ final class UserDetailServiceTests: XCTestCase {
 
 extension UserDetailServiceTests {
 
-    struct MockTestURLSession: UserDetailSessionProtocol {
+    struct MockTestURLSession: URLSessionProtocol {
 
         enum DataError: Error {
             case mockDataError

@@ -150,7 +150,7 @@ extension UserDetailViewModelTests {
     }
 
     struct MockURLSessionPlaceholder: URLSessionProtocol {
-        func fetchData(url: URL) async throws -> (Data, URLResponse) {
+        func fetchData<T>(type: T.Type, request: URLRequest) async throws -> (Data, URLResponse) {
             fatalError("MockURLSessionPlaceHolder method called")
         }
     }

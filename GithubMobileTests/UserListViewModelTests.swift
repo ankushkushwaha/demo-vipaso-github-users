@@ -16,12 +16,12 @@ final class UserListViewModelTests: XCTestCase {
         let sut = UserListViewModel(service: mockService)
 
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 0)
+        XCTAssertEqual(sut.users.count, 0)
 
-        await sut.fetchUsers(searchText: "abc")
+        await sut.fetchUsers(searchText: "abc", page: 1)
 
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 30)
+        XCTAssertEqual(sut.users.count, 30)
 
     }
 
@@ -32,14 +32,14 @@ final class UserListViewModelTests: XCTestCase {
 
         let sut = UserListViewModel(service: mockService)
         XCTAssertNil(sut.error)
-        XCTAssertEqual(sut.data.count, 0)
+        XCTAssertEqual(sut.users.count, 0)
 
-        await sut.fetchUsers(searchText: "abc")
+        await sut.fetchUsers(searchText: "abc", page: 1)
 
         XCTAssertNotNil(sut.error)
         XCTAssertEqual(sut.error?.errorId,
                        NetworkingError.requestFailed("Mock fetch failed").errorId)
-        XCTAssertEqual(sut.data.count, 0)
+        XCTAssertEqual(sut.users.count, 0)
     }
 }
 
@@ -54,12 +54,12 @@ extension UserListViewModelTests {
 
         var error: Error?
 
-        func fetchUserList(searchQuery: String) async -> Result<[User], Error> {
+        func fetchUserList(searchQuery: String, page: Int, usersPerPage: Int) async -> Result<UserResponse, any Error> {
             if let error = error {
                 return .failure(error)
 
-            } else if let models = MockModelProvider().userList() {
-                return .success(models)
+            } else if let model = MockModelProvider().userListResponse() {
+                return .success(model)
             }
 
             return .failure(NetworkingError.requestFailed("Mock fetch request failed"))
@@ -67,8 +67,9 @@ extension UserListViewModelTests {
     }
 
     struct MockURLSessionPlaceholder: URLSessionProtocol {
-        func fetchData(url: URL) async throws -> (Data, URLResponse) {
+        func fetchData<T>(type: T.Type, request: URLRequest) async throws -> (Data, URLResponse) {
             fatalError("MockURLSessionPlaceHolder method called")
+
         }
     }
 }

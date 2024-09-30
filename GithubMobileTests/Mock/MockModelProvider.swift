@@ -10,7 +10,7 @@ import Foundation
 
 struct MockModelProvider {
 
-    func userList() -> [User]? {
+    func userListResponse() -> UserResponse? {
         guard let data = MockJsonData().getJsonData() else {
             return nil
         }
@@ -19,7 +19,7 @@ struct MockModelProvider {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             let decodedData = try decoder.decode(UserResponse.self, from: data)
-            return decodedData.items
+            return decodedData
         } catch {
             print(error)
             return nil
