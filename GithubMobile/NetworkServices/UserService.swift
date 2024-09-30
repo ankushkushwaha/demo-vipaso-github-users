@@ -21,9 +21,14 @@ struct UserService: UserServiceProtocol {
         guard let url = URL(string: urlString) else {
             return .failure(NetworkingError.invalidURL)
         }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(Constants.accessToken)",
+                         forHTTPHeaderField: "Authorization")
 
         do {
-            let (data, response) = try await session.fetchData(url: url)
+            let (data, response) = try await session.fetchData(type: UserResponse.self, request: request)
 
             let responseModel = try JSONDecoder().decode(UserResponse.self, from: data)
 
@@ -48,11 +53,17 @@ protocol UserServiceProtocol {
 }
 
 protocol URLSessionProtocol {
-    func fetchData(url: URL) async throws -> (Data, URLResponse)
+    // Inject generic T.Type for unit tests
+    func fetchData<T>(type: T.Type,
+                      request: URLRequest) async throws -> (Data, URLResponse)
+
 }
 
 extension URLSession: URLSessionProtocol {
-    func fetchData(url: URL) async throws -> (Data, URLResponse) {
-        try await self.data(from: url)
+    
+    func fetchData<T>(type: T.Type,
+                      request: URLRequest) async throws -> (Data, URLResponse) {
+
+        try await self.data(for: request)
     }
 }

@@ -9,9 +9,9 @@ import Foundation
 
 struct UserDetailService: UserDetailServiceProtocol {
 
-    var session: UserDetailSessionProtocol
+    var session: URLSessionProtocol
 
-    init(session: UserDetailSessionProtocol = URLSession.shared) {
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
 
@@ -62,17 +62,4 @@ struct UserDetailService: UserDetailServiceProtocol {
 protocol UserDetailServiceProtocol {
     func fetchRepo(urlString: String) async -> Result<[Repo], Error>
     func fetchUserDetail(userName: String) async -> Result<User, Error>
-}
-
-protocol UserDetailSessionProtocol {
-    // Inject generic T.Type for unit tests
-    func fetchData<T>(type: T.Type,
-                      request: URLRequest) async throws -> (Data, URLResponse)
-}
-
-extension URLSession: UserDetailSessionProtocol {
-    func fetchData<T>(type: T.Type,
-                      request: URLRequest) async throws -> (Data, URLResponse) {
-        try await self.data(for: request)
-    }
 }
