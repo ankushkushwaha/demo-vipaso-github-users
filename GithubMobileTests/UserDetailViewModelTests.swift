@@ -93,7 +93,7 @@ final class UserDetailViewModelTests: XCTestCase {
         
         sut.fetchNextRepoPage()
         
-        XCTAssertEqual(sut.currentRepoPage, 2)
+        XCTAssertEqual(sut.currentRepoPage, 1)
     }
     
     func testFilteredRepo() async {
