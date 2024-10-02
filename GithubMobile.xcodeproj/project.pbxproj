@@ -33,6 +33,7 @@
 		54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDC1EE2C26CB3B007F18FE /* Constants.swift */; };
 		54F3CB402CAD64B400AEB34C /* RepoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */; };
 		54F3CB422CAD6C7A00AEB34C /* ToggleCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3CB412CAD6C7A00AEB34C /* ToggleCheckmarkView.swift */; };
+		54F3CB472CAD96DA00AEB34C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3CB462CAD96DA00AEB34C /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		54DDC1EE2C26CB3B007F18FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListItem.swift; sourceTree = "<group>"; };
 		54F3CB412CAD6C7A00AEB34C /* ToggleCheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCheckmarkView.swift; sourceTree = "<group>"; };
+		54F3CB462CAD96DA00AEB34C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				54F3CB412CAD6C7A00AEB34C /* ToggleCheckmarkView.swift */,
 				5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */,
 				5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */,
+				54F3CB462CAD96DA00AEB34C /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					540B41242C1D9D3500F717EA = {
 						CreatedOnToolsVersion = 15.3;
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F3CB422CAD6C7A00AEB34C /* ToggleCheckmarkView.swift in Sources */,
+				54F3CB472CAD96DA00AEB34C /* WebView.swift in Sources */,
 				540DC92A2C2489250008F90E /* UserDetailView.swift in Sources */,
 				54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */,
 				540DC9342C248CE80008F90E /* UserDetailService.swift in Sources */,
@@ -517,7 +521,6 @@
 		540B414D2C1D9D3700F717EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -536,7 +539,6 @@
 		540B414E2C1D9D3700F717EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

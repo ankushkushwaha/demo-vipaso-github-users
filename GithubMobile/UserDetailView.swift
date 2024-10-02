@@ -86,16 +86,20 @@ extension UserDetailView {
         
         List {
             ForEach(viewModel.filteredRepo, id: \.name) { repo in
-                RepoListItem(repo: repo)
-                    .onAppear {
-                        // Check if the item is the last one
-                        if repo == viewModel.repos.last {
-                            
-                            viewModel.fetchNextRepoPage()
-                        }
+                if let url = URL(string: repo.htmlUrl) {
+                    NavigationLink(destination: WebViewContainer(url: url)) {
+                        
+                        RepoListItem(repo: repo)
+                            .onAppear {
+                                // Check if the item is the last one
+                                if repo == viewModel.repos.last {
+                                    
+                                    viewModel.fetchNextRepoPage()
+                                }
+                            }
                     }
+                }
             }
-            
             // Add ProgressView at last of the list, to indicate load more is in progress
             if viewModel.isMoreRepoItemsAvailable {
                 ProgressView()
@@ -167,4 +171,11 @@ extension UserDetailView {
         }
         .padding(.horizontal, 16)
     }
+    
+    private func openUrl(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
+    }
 }
+

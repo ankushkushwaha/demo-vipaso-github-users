@@ -56,7 +56,8 @@ struct RepoListItem: View {
             description: "des",
             stargazersCount: 1,
             forkCount: 2,
-            isForked: false
+            isForked: false,
+            htmlUrl: ""
         )
     )
 }
