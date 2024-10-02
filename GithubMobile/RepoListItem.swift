@@ -31,11 +31,19 @@ struct RepoListItem: View {
                     .frame(maxWidth: .infinity, alignment: .topLeading)
             }
             
+            Text("\(repo.description ?? "-")")
+                .lineSpacing(8)
+                .font(.system(size: 15, weight: .light))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 8)
+
             if repo.isForked {
-                Text("Forked")
+                Text("isForked: \(repo.isForked)")
+                    .font(.system(size: 15, weight: .light))
+                    .foregroundStyle(.red)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .frame(maxWidth: .infinity)  // Expands VStack to take full width
     }
 }
 

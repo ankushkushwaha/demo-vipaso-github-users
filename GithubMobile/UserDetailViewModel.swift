@@ -13,6 +13,7 @@ class UserDetailViewModel: ObservableObject {
     @Published var user: User
     @Published var isLoading: Bool = false
     @Published var error: NetworkingError?
+    @Published var showForkedRepos = false
 
     private let service: UserDetailServiceProtocol
     private var currentRepoPage = 1 // API returns same data for page 0 and 1, So we begin with 1
@@ -98,6 +99,14 @@ extension UserDetailViewModel {
             totalPage += 1
         }
         return totalPage
+    }
+    
+    var filteredRepo: [Repo] {
+        
+        if showForkedRepos {
+            return repos
+        }
+        return repos.filter { !$0.isForked }
     }
     
     var isMoreRepoItemsAvailable: Bool {

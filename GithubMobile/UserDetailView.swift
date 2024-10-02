@@ -61,15 +61,23 @@ extension UserDetailView {
                     
                     Divider()
                     
-                    Text("Public repositories:")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 16)
-                        .font(.system(size: 16, weight: .semibold))
+                    VStack {
+                        HStack {
+                            Text("Public repositories:")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 16)
+                                .font(.system(size: 16, weight: .semibold))
+                            
+                            Spacer()
+                            
+                            ToggleCheckmarkView(isChecked: $viewModel.showForkedRepos, title: "Show Forked: ")
+                                .foregroundColor(.red)
+                        }
+                    }
                 }
             }
             
             repoListView()
-            
         }
     }
     
@@ -77,10 +85,8 @@ extension UserDetailView {
     private func repoListView() -> some View {
         
         List {
-            ForEach(viewModel.repos, id: \.name) { repo in
-                //        List(viewModel.repos, id: \.name) { repo in
-                Text(repo.name)
-                    .font(.system(size: 15, weight: .light))
+            ForEach(viewModel.filteredRepo, id: \.name) { repo in
+                RepoListItem(repo: repo)
                     .onAppear {
                         // Check if the item is the last one
                         if repo == viewModel.repos.last {
