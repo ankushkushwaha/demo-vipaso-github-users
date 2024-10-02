@@ -15,7 +15,7 @@ class UserDetailViewModel: ObservableObject {
     @Published var error: NetworkingError?
 
     private let service: UserDetailServiceProtocol
-    private var currentRepoPage = 1 // API returns same data for page 0, and 1
+    private var currentRepoPage = 1 // API returns same data for page 0 and 1, So we begin with 1
     private var reposPerPage = 10
 
     init(user: User,
