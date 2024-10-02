@@ -79,7 +79,55 @@ final class UserDetailViewModelTests: XCTestCase {
 
         XCTAssertEqual(sut.blog, "https://api.github.com/users/ankushkushwaha")
     }
+    
+    func testFetchNextPage() async {
+        let mockService = MockService()
 
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+
+        XCTAssertEqual(sut.currentRepoPage, 1)
+
+        // fetchUserDetail sets totalRepoPages, based on which we increase our currentRepoPage
+        
+        await sut.fetchUserDetail()
+        
+        sut.fetchNextRepoPage()
+        
+        XCTAssertEqual(sut.currentRepoPage, 2)
+    }
+    
+    func testFilteredRepo() async {
+        let mockService = MockService()
+
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+
+        await sut.fetchRepo(page: 1)
+        
+        XCTAssertEqual(sut.filteredRepo.count, 14)
+        
+        sut.showForkedRepos = true
+        XCTAssertEqual(sut.filteredRepo.count, 27)
+    }
+    
+    // Computed property tests
+    
+    func testHireable() async {
+        let mockService = MockService()
+        
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        
+        await sut.fetchUserDetail()
+        
+        XCTAssertEqual(sut.hireable, "Yes")
+    }
+    
+    func testImageUrl() async {
+        let mockService = MockService()
+        let sut = UserDetailViewModel(user: mockUser, service: mockService)
+        await sut.fetchUserDetail()
+        XCTAssertEqual(sut.imageUrl, "https://avatars.githubusercontent.com/u/11902070?v=4")
+    }
+    
     func testFollowers() async {
         let mockService = MockService()
         let sut = UserDetailViewModel(user: mockUser, service: mockService)
@@ -111,6 +159,7 @@ final class UserDetailViewModelTests: XCTestCase {
 
         XCTAssertEqual(sut.publicRepos, "27")
     }
+
 
 }
 

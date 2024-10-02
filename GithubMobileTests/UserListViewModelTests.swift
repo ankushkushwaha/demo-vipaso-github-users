@@ -41,6 +41,21 @@ final class UserListViewModelTests: XCTestCase {
                        NetworkingError.requestFailed("Mock fetch failed").errorId)
         XCTAssertEqual(sut.users.count, 0)
     }
+    
+    func testFetchNextPage() async {
+        let mockService = MockService()
+
+        let sut = UserListViewModel(service: mockService)
+
+        XCTAssertEqual(sut.currentPage, 1)
+
+        await sut.fetchUsers(searchText: "abc", page: 1)
+
+        sut.fetchNextPage()
+        
+        XCTAssertEqual(sut.currentPage, 2)
+
+    }
 }
 
 extension UserListViewModelTests {
