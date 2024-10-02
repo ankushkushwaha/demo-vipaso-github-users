@@ -36,7 +36,7 @@ struct RepoListItem: View {
                 .font(.system(size: 15, weight: .light))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, 8)
-
+            
             if repo.isForked {
                 Text("isForked: \(repo.isForked)")
                     .font(.system(size: 15, weight: .light))

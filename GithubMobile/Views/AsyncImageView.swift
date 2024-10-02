@@ -13,10 +13,10 @@ struct AsyncImageView: View {
         case small
         case large
     }
-
+    
     private let size: Size
     private let imageUrl: String
-
+    
     init(imageUrl: String, size: Size = .small) {
         self.imageUrl = imageUrl
         self.size = size
@@ -26,7 +26,7 @@ struct AsyncImageView: View {
         AsyncImage(url: URL(string: imageUrl)) { phase in
             let size = self.size == .small ? 50.0 : 80.0
             let padding = 10.0
-
+            
             if let image = phase.image {
                 image
                     .resizable()

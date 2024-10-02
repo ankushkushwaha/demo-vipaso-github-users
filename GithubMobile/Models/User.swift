@@ -19,7 +19,7 @@ struct User: Identifiable, Codable, Hashable {
     let repoUrl: String
     let publicGists: Int?
     let publicRepos: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case login
@@ -44,7 +44,7 @@ extension User {
 struct UserResponse: Codable {
     let items: [User]
     let totalCount: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case items
         case totalCount = "total_count"

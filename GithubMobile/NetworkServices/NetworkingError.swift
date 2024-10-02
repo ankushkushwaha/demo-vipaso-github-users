@@ -8,12 +8,12 @@
 import Foundation
 
 enum NetworkingError: Error {
-
+    
     case invalidURL
     case requestFailed(String)
     case noSearchResultsAvailable(_ description: String?)
     case httpError(Int)
-
+    
     var errorMessage: String {
         switch self {
         case .invalidURL:
@@ -26,7 +26,7 @@ enum NetworkingError: Error {
             return "Error: \(errorCode)"
         }
     }
-
+    
     var errorId: Int {
         switch self {
         case .invalidURL:

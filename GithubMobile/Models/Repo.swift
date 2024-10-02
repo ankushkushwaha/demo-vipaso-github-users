@@ -15,7 +15,7 @@ struct Repo: Codable, Equatable {
     let stargazersCount: Int
     let forkCount: Int
     let isForked: Bool
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name

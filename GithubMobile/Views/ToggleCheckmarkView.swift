@@ -10,7 +10,7 @@ import SwiftUI
 struct ToggleCheckmarkView: View {
     @Binding var isChecked: Bool
     let title: String
-
+    
     var body: some View {
         
         HStack() {

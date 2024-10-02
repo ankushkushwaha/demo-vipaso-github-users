@@ -121,11 +121,8 @@
 				540DC9242C2489250008F90E /* UserListView.swift */,
 				540DC9252C2489250008F90E /* UserListViewModel.swift */,
 				540DC9262C2489250008F90E /* UserDetailView.swift */,
-				54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */,
 				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
-				54F3CB412CAD6C7A00AEB34C /* ToggleCheckmarkView.swift */,
-				5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */,
-				5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */,
+				54F3CB432CAD780F00AEB34C /* Views */,
 				540DC9432C248FA20008F90E /* NetworkServices */,
 				5413B23C2C25164C001F48D3 /* Models */,
 				540B412C2C1D9D3700F717EA /* Assets.xcassets */,
@@ -184,6 +181,17 @@
 				543A1B1C2C26E4E100B6D545 /* MockModelProvider.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		54F3CB432CAD780F00AEB34C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */,
+				54F3CB412CAD6C7A00AEB34C /* ToggleCheckmarkView.swift */,
+				5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */,
+				5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
