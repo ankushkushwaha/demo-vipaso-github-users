@@ -16,7 +16,7 @@ class UserDetailViewModel: ObservableObject {
     @Published var showForkedRepos = false
 
     private let service: UserDetailServiceProtocol
-    private var currentRepoPage = 1 // API returns same data for page 0 and 1, So we begin with 1
+    var currentRepoPage = 1 // API returns same data for page 0 and 1, So we begin with 1
     private let reposPerPage = 15
 
     init(user: User,
