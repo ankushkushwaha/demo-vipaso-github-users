@@ -31,6 +31,7 @@
 		5459AED22CA82FAC0090B6B4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */; };
 		5459AED42CA9A3AF0090B6B4 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */; };
 		54DDC1EF2C26CB3B007F18FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDC1EE2C26CB3B007F18FE /* Constants.swift */; };
+		54F3CB402CAD64B400AEB34C /* RepoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		54DDC1EE2C26CB3B007F18FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				540DC9242C2489250008F90E /* UserListView.swift */,
 				540DC9252C2489250008F90E /* UserListViewModel.swift */,
 				540DC9262C2489250008F90E /* UserDetailView.swift */,
+				54F3CB3F2CAD64B400AEB34C /* RepoListItem.swift */,
 				540DC9272C2489250008F90E /* UserDetailViewModel.swift */,
 				5459AED12CA82FAC0090B6B4 /* AsyncImageView.swift */,
 				5459AED32CA9A3AF0090B6B4 /* ErrorAlert.swift */,
@@ -291,6 +294,7 @@
 				540B41292C1D9D3500F717EA /* GithubMobileApp.swift in Sources */,
 				540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */,
 				540DC92B2C2489250008F90E /* UserDetailViewModel.swift in Sources */,
+				54F3CB402CAD64B400AEB34C /* RepoListItem.swift in Sources */,
 				540DC9452C248FA20008F90E /* UserService.swift in Sources */,
 				540DC9292C2489250008F90E /* UserListViewModel.swift in Sources */,
 				540DC9402C248DB20008F90E /* User.swift in Sources */,
