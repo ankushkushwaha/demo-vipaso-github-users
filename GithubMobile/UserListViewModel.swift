@@ -19,7 +19,7 @@ class UserListViewModel: ObservableObject {
     var error: NetworkingError?
     
     private var currentPage = 1 // API returns same data for page 0, and 1
-    private var usersPerPage = 12
+    private let usersPerPage = 15
     private var totalCount: Int?
     
     private let service: UserSearchServiceProtocol
