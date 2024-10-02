@@ -17,7 +17,7 @@ class UserDetailViewModel: ObservableObject {
 
     private let service: UserDetailServiceProtocol
     var currentRepoPage = 1 // API returns same data for page 0 and 1, So we begin with 1
-    private let reposPerPage = 15
+    private let reposPerPage = 30
 
     init(user: User,
          service: UserDetailServiceProtocol = UserDetailService()) {
