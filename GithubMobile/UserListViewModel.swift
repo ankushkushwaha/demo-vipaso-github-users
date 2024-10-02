@@ -109,6 +109,7 @@ class UserListViewModel: ObservableObject {
     private func resetData() {
         
         self.users = []
+        self.currentPage = 1
         self.totalCount = nil
     }
 }
