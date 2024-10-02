@@ -1,5 +1,5 @@
 //
-//  UserService.swift
+//  UserSearchService.swift
 //  GithubMobile
 //
 //  Created by Ankush Kushwaha on 20/06/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserService: UserServiceProtocol {
+struct UserSearchService: UserSearchServiceProtocol {
     
     var session: URLSessionProtocol
     
@@ -48,7 +48,7 @@ struct UserService: UserServiceProtocol {
     }
 }
 
-protocol UserServiceProtocol {
+protocol UserSearchServiceProtocol {
     func fetchUserList(searchQuery: String, page: Int, usersPerPage: Int) async -> Result<UserResponse, Error>
 }
 

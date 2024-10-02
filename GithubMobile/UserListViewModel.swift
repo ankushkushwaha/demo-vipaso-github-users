@@ -22,14 +22,14 @@ class UserListViewModel: ObservableObject {
     private var usersPerPage = 12
     private var totalCount: Int?
     
-    private let service: UserServiceProtocol
+    private let service: UserSearchServiceProtocol
     
     private let throttleMiliSeconds = 1000
     private let minimumBaseKeyStrokeLength = 2
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(service: UserServiceProtocol = UserService()) {
+    init(service: UserSearchServiceProtocol = UserSearchService()) {
         self.service = service
         
         // Observer for searchText publisher

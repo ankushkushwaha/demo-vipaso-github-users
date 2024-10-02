@@ -18,7 +18,7 @@
 		540DC93F2C248DB20008F90E /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93D2C248DB20008F90E /* Repo.swift */; };
 		540DC9402C248DB20008F90E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC93E2C248DB20008F90E /* User.swift */; };
 		540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9412C248FA20008F90E /* NetworkingError.swift */; };
-		540DC9452C248FA20008F90E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9422C248FA20008F90E /* UserService.swift */; };
+		540DC9452C248FA20008F90E /* UserSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DC9422C248FA20008F90E /* UserSearchService.swift */; };
 		5413B2412C2519ED001F48D3 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2402C2519ED001F48D3 /* UserServiceTests.swift */; };
 		5413B2432C251DC9001F48D3 /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B23F2C251981001F48D3 /* UserListViewModelTests.swift */; };
 		5413B2452C252887001F48D3 /* UserDetailServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5413B2442C252887001F48D3 /* UserDetailServiceTests.swift */; };
@@ -59,7 +59,7 @@
 		540DC93D2C248DB20008F90E /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		540DC93E2C248DB20008F90E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		540DC9412C248FA20008F90E /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
-		540DC9422C248FA20008F90E /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		540DC9422C248FA20008F90E /* UserSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchService.swift; sourceTree = "<group>"; };
 		5413B23F2C251981001F48D3 /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
 		5413B2402C2519ED001F48D3 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
 		5413B2422C251B8B001F48D3 /* GithubMobile.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubMobile.xctestplan; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			children = (
 				54DDC1EE2C26CB3B007F18FE /* Constants.swift */,
 				540DC9412C248FA20008F90E /* NetworkingError.swift */,
-				540DC9422C248FA20008F90E /* UserService.swift */,
+				540DC9422C248FA20008F90E /* UserSearchService.swift */,
 				540DC9312C248CDE0008F90E /* UserDetailService.swift */,
 			);
 			path = NetworkServices;
@@ -307,7 +307,7 @@
 				540DC9442C248FA20008F90E /* NetworkingError.swift in Sources */,
 				540DC92B2C2489250008F90E /* UserDetailViewModel.swift in Sources */,
 				54F3CB402CAD64B400AEB34C /* RepoListItem.swift in Sources */,
-				540DC9452C248FA20008F90E /* UserService.swift in Sources */,
+				540DC9452C248FA20008F90E /* UserSearchService.swift in Sources */,
 				540DC9292C2489250008F90E /* UserListViewModel.swift in Sources */,
 				540DC9402C248DB20008F90E /* User.swift in Sources */,
 				540DC9282C2489250008F90E /* UserListView.swift in Sources */,

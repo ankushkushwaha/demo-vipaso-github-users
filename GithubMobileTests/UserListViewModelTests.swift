@@ -45,7 +45,7 @@ final class UserListViewModelTests: XCTestCase {
 
 extension UserListViewModelTests {
 
-    struct MockService: UserServiceProtocol {
+    struct MockService: UserSearchServiceProtocol {
 
         enum DataError: Error {
             case requestFailed

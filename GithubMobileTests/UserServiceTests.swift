@@ -12,7 +12,7 @@ final class UserServiceTests: XCTestCase {
 
     func testFetchUserListSuccess() async throws {
         let mockSession = MockTestURLSession()
-        let sut = UserService(session: mockSession)
+        let sut = UserSearchService(session: mockSession)
 
         let result = await sut.fetchUserList(searchQuery: "abc", page: 1, usersPerPage: 10)
 
@@ -31,7 +31,7 @@ final class UserServiceTests: XCTestCase {
         var mockSession = MockTestURLSession()
         mockSession.error = MockTestURLSession.DataError.mockDataError
 
-        let sut = UserService(session: mockSession)
+        let sut = UserSearchService(session: mockSession)
 
         let result = await sut.fetchUserList(searchQuery: "abc", page: 1, usersPerPage: 10)
 
